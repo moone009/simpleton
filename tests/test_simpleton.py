@@ -1,22 +1,7 @@
-#!/usr/bin/env python
-"""Tests for `simpleton` package."""
-# pylint: disable=redefined-outer-name
-
 import pytest
+from simpleton.process import chunks
 
 
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
-    del response
+def test_chinks():
+   rslt = chunks(lst= [1,2,3,4,5,6],n = 2)
+   assert len(rslt) == 2
