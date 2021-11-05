@@ -382,6 +382,46 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#simpleton.nlp" class="md-nav__link">
+    nlp
+  </a>
+  
+    <nav class="md-nav" aria-label="nlp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simpleton.nlp.count_tokens" class="md-nav__link">
+    count_tokens()
+  </a>
+  
+    <nav class="md-nav" aria-label="count_tokens()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simpleton.nlp.count_tokens--parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simpleton.nlp.count_tokens--returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#simpleton.process" class="md-nav__link">
     process
   </a>
@@ -492,6 +532,46 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#simpleton.nlp" class="md-nav__link">
+    nlp
+  </a>
+  
+    <nav class="md-nav" aria-label="nlp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simpleton.nlp.count_tokens" class="md-nav__link">
+    count_tokens()
+  </a>
+  
+    <nav class="md-nav" aria-label="count_tokens()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simpleton.nlp.count_tokens--parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simpleton.nlp.count_tokens--returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#simpleton.process" class="md-nav__link">
     process
   </a>
@@ -570,6 +650,104 @@
 
 
 
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
+<h2 id="simpleton.nlp" class="doc doc-heading">
+        <code>nlp</code>
+
+
+
+<a href="#simpleton.nlp" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="simpleton.nlp.count_tokens" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">count_tokens</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">ngrams</span><span class="p">)</span></code>
+
+
+<a href="#simpleton.nlp.count_tokens" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Consumes a pandas dataframe column and counts the number of tokens.</p>
+<h6 id="simpleton.nlp.count_tokens--parameters">Parameters<a class="headerlink" href="#simpleton.nlp.count_tokens--parameters" title="Permanent link">&para;</a></h6>
+<div class="admonition column">
+<p class="admonition-title">pd.core.series.Series</p>
+<p>Input list</p>
+</div>
+<div class="admonition ngrams">
+<p class="admonition-title">int</p>
+<p>The number of tokens 1 = unigram, 2 = bigram, 3 = trigram, etc.</p>
+</div>
+<h6 id="simpleton.nlp.count_tokens--returns">Returns<a class="headerlink" href="#simpleton.nlp.count_tokens--returns" title="Permanent link">&para;</a></h6>
+<div class="admonition output">
+<p class="admonition-title">pd.core.frame.DataFrame</p>
+<p>A dataframe containing the token and count.</p>
+</div>
+
+        <details class="quote">
+          <summary>Source code in <code>simpleton\nlp.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">count_tokens</span><span class="p">(</span><span class="n">column</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">series</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">ngrams</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Consumes a pandas dataframe column and counts the number of tokens.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    column: pd.core.series.Series</span>
+<span class="sd">         Input list</span>
+<span class="sd">    ngrams: int</span>
+<span class="sd">        The number of tokens 1 = unigram, 2 = bigram, 3 = trigram, etc.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output: pd.core.frame.DataFrame</span>
+<span class="sd">        A dataframe containing the token and count.</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="n">word_vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="n">ngrams</span><span class="p">,</span><span class="n">ngrams</span><span class="p">),</span> <span class="n">analyzer</span><span class="o">=</span><span class="s1">&#39;word&#39;</span><span class="p">)</span>
+    <span class="n">sparse_matrix</span> <span class="o">=</span> <span class="n">word_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+    <span class="n">frequencies</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sparse_matrix</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">word_vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Frequency&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">,</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">output</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">output</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;Token&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">output</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
 
 
 
