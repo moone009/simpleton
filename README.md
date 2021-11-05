@@ -26,7 +26,7 @@ A package containing simple modules that you probably would not need.
 
 
 * Free software: MIT
-* Documentation: <https://simpleton.readthedocs.io>
+* Documentation: https://moone009.github.io/simpleton/
 
 
 ## Features
