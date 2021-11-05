@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         python-versions: [3.7, 3.8, 3.9]
-        os: [ubuntu-18.04, macos-latest, windows-latest]
+        os: [ubuntu-18.04, windows-latest]
     runs-on: ${{ matrix.os }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -82,11 +82,3 @@ jobs:
           poetry version $(poetry version --short)-dev.$GITHUB_RUN_NUMBER
           poetry version --short
           poetry build
-
-      - name: publish to Test PyPI
-        uses: pypa/gh-action-pypi-publish@master
-        with:
-          user: __token__
-          password: ${{ secrets.TEST_PYPI_API_TOKEN}}
-          repository_url: https://test.pypi.org/legacy/
-          skip_existing: true
